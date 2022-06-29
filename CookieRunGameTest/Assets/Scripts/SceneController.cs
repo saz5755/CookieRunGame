@@ -8,7 +8,7 @@ public class SceneController : MonoBehaviour
 {
     [SerializeField]
     private Image progressBar;
-    
+  
     public static string nextScene;
 
     private static SceneController instance;
@@ -33,6 +33,7 @@ public class SceneController : MonoBehaviour
     IEnumerator LoadSceneProcess()
     {
         progressBar.fillAmount = 0f;
+
         AsyncOperation op = SceneManager.LoadSceneAsync("LoadScene");
         op.allowSceneActivation = false; //로딩 90퍼에서 멈추기 그 동안 tip 스토리 보여주기
 
@@ -51,6 +52,7 @@ public class SceneController : MonoBehaviour
                 {
                     op.allowSceneActivation = true;
                     SceneController.Instance.OpenScene("MainScene");
+                    //StopCoroutine(LoadSceneProcess());
                     yield break;
                 }
             }
