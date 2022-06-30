@@ -13,19 +13,20 @@ public class StartButton : MonoBehaviour
     {
         startButton = GetComponent<Button>();
     }
-    private void Update()
+
+    private void Start()
     {
         goInGameScene();
-    }
-
-    public void goInGameScene()
-    {
-        startButton.onClick.AddListener(InGameScene);
-        Debug.Log("버튼 클릭");
     }
     private void InGameScene()
     {
         SceneManager.LoadScene("InGameScene");
     }
+    public void goInGameScene()
+    {
+        startButton.onClick.AddListener(InGameScene);
+        Debug.Log("버튼 클릭");
+    }
+    
 
 }
