@@ -18,6 +18,7 @@ public class StartButton : MonoBehaviour
     {
         goInGameScene();
     }
+
     private void InGameScene()
     {
         SceneManager.LoadScene("InGameScene");
@@ -27,6 +28,4 @@ public class StartButton : MonoBehaviour
         startButton.onClick.AddListener(InGameScene);
         Debug.Log("버튼 클릭");
     }
-    
-
 }
