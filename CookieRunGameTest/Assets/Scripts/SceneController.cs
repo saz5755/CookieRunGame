@@ -43,7 +43,7 @@ public class SceneController : MonoBehaviour
         {
             yield return null;
             progressBar.fillAmount = 0;
-            timer += Time.deltaTime;
+            timer += Time.deltaTime /3;
 
             if (op.progress <= 0.9f)
             {

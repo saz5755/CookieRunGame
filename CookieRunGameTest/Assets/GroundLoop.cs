@@ -4,26 +4,38 @@ using UnityEngine;
 
 public class GroundLoop : MonoBehaviour
 {
-    private float width;
-    private BoxCollider2D box;
+    private float width ;
+    private float timer;
+    private float delay = 5f;
+
+    private GameObject tileMap;
+
     private void Awake()
     {
-        box = GetComponent<BoxCollider2D>();
-        this.width = box.size.x;
+        tileMap = Resources.Load<GameObject>("TilePrefabs/TileMap2");
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (this.transform.position.x <= -width)
+        timer += Time.deltaTime;
+        if (timer >= delay)
         {
-            this.Reposition();
+            timer -= delay;
+            Reposition();
+
+        }
+
+        transform.position += Vector3.left * Time.deltaTime;
+        if (transform.position.x <= -12f)
+        {
+            Destroy(gameObject);
         }
     }
 
     private void Reposition()
     {
-        Vector2 offset = new Vector2(this.width * 2, 0) * 3;
-        this.transform.position = (Vector2)this.transform.position + offset ;
+        GameObject tile;
+
+        tile = Instantiate(tileMap, transform.position, Quaternion.identity);    
     }
 }

@@ -19,14 +19,16 @@ public class Gold : MonoBehaviour
         {
             Debug.Log("∞ÒµÂ ∏‘¿Ω");
             score += 100;
-            myScore.text = "Score: " + score.ToString();
             Destroy(gameObject);
+            myScore.text = "Score:" + score.ToString();
+
         }
     }
 
     private void Update()
     {
-        transform.position += Vector3.left * Time.deltaTime * 2f;
+
+        transform.position += Vector3.left * Time.deltaTime * 20f;
 
         if(transform.position.x <= -11)
         {
